@@ -58,8 +58,37 @@ class Solution:
         #     sol[tup[0]][tup[1]] = min_val
         #
         # return sol
-        # TODO solve this
-        pass
+
+
+        # Attempt 3 - DP
+
+
+        sol = []
+        # set up the matrix
+        for i, row in enumerate(mat):
+            sol.append([])
+            for j, col in enumerate(row):
+                sol[i].append(float('inf'))
+
+        # set up the matrix
+        for i, row in enumerate(mat):
+            for j, col in enumerate(row):
+                if mat[i][j] == 0:
+                    sol[i][j] = 0
+                else:
+                    if i > 0:
+                        sol[i][j] = min(sol[i][j], sol[i-1][j] + 1)
+                    if j > 0:
+                        sol[i][j] = min(sol[i][j], sol[i][j- 1] + 1)
+
+        for i in reversed(range(len(mat))):
+            for j in reversed(range(len(mat[i]))):
+
+                if i < len(mat) - 1:
+                    sol[i][j] = min(sol[i][j], sol[i+1][j] + 1)
+                if j < len(mat[0]) - 1:
+                    sol[i][j] = min(sol[i][j], sol[i][j+ 1] + 1)
+        return sol
 
 
 
