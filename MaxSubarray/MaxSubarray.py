@@ -14,7 +14,7 @@ class Solution:
             else:
                 max_sum = max(max_sum, curr)
         if max_sum == 0:
-            max_sum = max(nums)w
+            max_sum = max(nums)
         return max_sum
 
 
