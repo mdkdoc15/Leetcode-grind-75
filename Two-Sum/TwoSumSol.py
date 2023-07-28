@@ -18,6 +18,7 @@ def twoSum(nums: List[int], target: int) -> List[int]:
             index = nums.index(check)
             if index != i:
                 return [i, index]
+    # With a sorted list you can start at both ends and work your way in
 
 if __name__ == '__main__':
     print(twoSum([2, 7, 11, 15], 9))
